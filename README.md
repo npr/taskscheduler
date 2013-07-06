@@ -9,7 +9,7 @@ A topic-based task scheduler for Node.js. Allows scheduling multiple handlers pe
 
 ```javascript
 var scheduler = require('taskscheduler');
-var interval = 200;
+var interval = 200; // call tasks every 200 milliseconds.
 
 var handlerID = scheduler.addTopicHandler("publish message", function publishExecutor() {
   
