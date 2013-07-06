@@ -2,7 +2,7 @@
   "name": "taskscheduler"
 , "description": "Task Scheduler"
 , "version": "0.1.0"
-  "author": {
+, "author": {
     "name": "inadarei"
   , "email": "irakli@gmail.com"
   },
