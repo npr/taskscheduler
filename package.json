@@ -3,7 +3,7 @@
 , "description": "Task Scheduler"
 , "version": "0.1.0"
   "author": {
-  , "name": "inadarei"
+    "name": "inadarei"
   , "email": "irakli@gmail.com"
   },
   "repository": {
