@@ -10,13 +10,21 @@ A topic-based task scheduler for Node.js. Allows scheduling multiple handlers pe
 ```javascript
 var scheduler = require('taskscheduler');
 var interval = 200; // call tasks every 200 milliseconds.
-
-var handlerID = scheduler.addTopicHandler("publish message", function publishExecutor(topic, callback) {
+var topic = "publish message";
+var publishExecutor = function (topic, callback) {
   
   console.log("publisher called");
-    
-}, function cleanupCallback(err, topic, reciept) {
-}, interval);
+  callback(null, topic, "22222");  
+}; 
+
+var cleanupCallback = function(err, topic, reciept) {
+  // ...
+};
+
+var handlerID = scheduler.addTopicHandler( "publish message", 
+                                         , publishExecutor
+                                         , cleanupCallback
+                                         , interval);
 ```
 
 ### De-activating a Handler
