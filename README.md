@@ -21,7 +21,7 @@ var cleanupCallback = function(err, topic, reciept) {
   // ...
 };
 
-var handlerID = scheduler.addTopicHandler( "publish message", 
+var handlerID = scheduler.addTopicHandler( topic, 
                                          , publishExecutor
                                          , cleanupCallback
                                          , interval);
