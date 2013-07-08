@@ -23,8 +23,8 @@ var AWSConfig = {
   };
 
 var util    = require('util')
-  , sqstask = require('../sqstask')(AWSConfig)
-  , ts      = require('../taskscheduler')(sqstask);
+  , sqstask = require('lib/sqstask')(AWSConfig)
+  , ts      = require('lib/taskscheduler')(sqstask);
 
 var publisherHandlerID = ts.addTopicHandler("publisher", taskJob, 100);
 
