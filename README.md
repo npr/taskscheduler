@@ -10,6 +10,29 @@ For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.co
 A [very] early release. Feel free to: inspect, hack, enjoy and contribute (e.g.: feedback, documentation or bug fixes), 
 but use at your own risk in production. 
 
+## Installation
+
+Since they are under active development, TaskScheduler and SQSTask are intentionally not published to npm, yet. 
+Until that happens best way to use the modules is to point to Github URLs in your packages.json file, with something
+like the following:
+
+```json
+{
+  "name" : "Example Project"
+, "version" : "1.1.0"
+, "engines": {
+    "node": "..."
+  }
+, "dependencies": {
+    "awssum"             : "git://github.com/nprdm/awssum.git"  
+  , "taskscheduler"      : "git://github.com/publicmediaplatform/taskscheduler.git"
+  , "sqstask"            : "git://github.com/publicmediaplatform/sqstask.git"
+  }
+}
+
+
+```
+
 ## USAGE
 
 ### Registering a Handler
