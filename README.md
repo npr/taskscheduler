@@ -25,8 +25,6 @@ like the following:
   , "sqstask"            : "git://github.com/publicmediaplatform/sqstask.git"
   }
 }
-
-
 ```
 
 ## USAGE
