@@ -46,3 +46,18 @@ setTimeout(function(hID) {
 }, 1000, publisherHandlerID);
 ```
 
+### Sending messages
+
+```javascript
+// @TODO: when a queue doesn't exist, there are extra error messages and not sure where from.
+for (var i = 0; i<5; i++) {
+  sqstask.put( "publisher"
+             , "This is message # " + new Date().getTime()
+             , function(err, result) {
+    if (err) {
+      util.log("Error sending a message to the queue: " + util.inspect(err.Body.ErrorResponse.Error));
+      console.log(err);
+    }
+  });
+}
+```
