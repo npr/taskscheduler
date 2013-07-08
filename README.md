@@ -5,6 +5,10 @@ A topic-based task scheduler for Node.js. Allows for pluggable queue implementat
 
 For a sample queue plugin using Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
 
+## Status
+
+A [very] early release. Feel free to inspect, hack, enjoy and contribute feedback, documentation or buf fixes, but use at your own risk in production. 
+
 ## USAGE
 
 ### Registering a Handler
