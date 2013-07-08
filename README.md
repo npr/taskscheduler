@@ -49,7 +49,21 @@ setTimeout(function(hID) {
 ### Sending messages
 
 ```javascript
-// @TODO: when a queue doesn't exist, there are extra error messages and not sure where from.
+var amazon = require('awssum-amazon');
+
+// @see: http://awssum.io/amazon/
+var AWSConfig = {
+      "accessKeyId"     : "..."
+    , "secretAccessKey" : "..."
+    , "awsAccountId"    : "..."
+    , "quequePrefix"    : "task"
+    , "region"          : amazon.US_WEST_2 
+  };
+
+var sqstask = require('../sqstask')(AWSConfig);
+
+// Note: you do not have to pre-create queues corresponding to topics. 
+// They will be automatically created for you if they do not exist.
 for (var i = 0; i<5; i++) {
   sqstask.put( "publisher"
              , "This is message # " + new Date().getTime()
