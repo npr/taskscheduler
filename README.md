@@ -1,34 +1,48 @@
 taskscheduler
 =============
 
-A topic-based task scheduler for Node.js. Allows scheduling multiple handlers per topic. 
+A topic-based task scheduler for Node.js. Allows for pluggable queue implementation. 
+
+For a sample queue plugin using Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
 
 ## USAGE
 
 ### Registering a Handler
 
 ```javascript
-var scheduler = require('taskscheduler');
-var interval = 200; // call tasks every 200 milliseconds.
-var topic = "publish message";
-var publishExecutor = function (topic, callback) {
-  
-  console.log("publisher called");
-  callback(null, topic, "22222");  
-}; 
 
-var cleanupCallback = function(err, topic, reciept) {
-  // ...
+var AWSConfig = {
+      "accessKeyId"     : "..."
+    , "secretAccessKey" : "..."
+    , "awsAccountId"    : "..."
+  };
+
+var util    = require('util')
+  , sqstask = require('../sqstask')(AWSConfig)
+  , ts      = require('../taskscheduler')(sqstask);
+
+var publisherHandlerID = ts.addTopicHandler("publisher", taskJob, 100);
+
+var taskJob = function(topic, message, callback) {
+
+  console.dir("Task job fired, with message: " + message);
+   
+  var err = null;
+  
+  var random = Math.floor(Math.random() * 5) + 1;
+  if (random === 5) {
+    err = new Error("something");
+    console.log("Error simulated for message: " + message);
+  }    
+
+  callback(err);
+    
 };
 
-var handlerID = scheduler.addTopicHandler( topic, 
-                                         , publishExecutor
-                                         , cleanupCallback
-                                         , interval);
+//-- You can also de-register a task, if you don't want it running "forever".
+
+setTimeout(function(hID) {
+  ts.removeTopicHandler(hID);
+}, 1000, publisherHandlerID);
 ```
 
-### De-activating a Handler
-
-```javascript
-  scheduler.removeTopicHandler(handlerID);
-```
