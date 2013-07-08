@@ -20,12 +20,8 @@ like the following:
 {
   "name" : "Example Project"
 , "version" : "1.1.0"
-, "engines": {
-    "node": "..."
-  }
 , "dependencies": {
-    "awssum"             : "git://github.com/nprdm/awssum.git"  
-  , "taskscheduler"      : "git://github.com/publicmediaplatform/taskscheduler.git"
+    "taskscheduler"      : "git://github.com/publicmediaplatform/taskscheduler.git"
   , "sqstask"            : "git://github.com/publicmediaplatform/sqstask.git"
   }
 }
