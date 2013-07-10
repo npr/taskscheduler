@@ -49,6 +49,7 @@ var util      = require('util')
 
 ### Registering a Handler
 
+```javascript
 var publisherHandlerID = scheduler.addTopicHandler("publisher", taskJob, 100);
 
 function taskJob(topic, message, callback) {
