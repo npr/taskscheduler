@@ -83,7 +83,7 @@ setTimeout(function(hID) {
 
 ```javascript
 
-scheduler.topicEnsureExist(test_topic, function(err) {
+scheduler.topicEnsureExists(test_topic, function(err) {
 
   if (!err) {
     sendmessagesAndReadMessages();
