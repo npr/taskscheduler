@@ -29,7 +29,9 @@ like the following:
 
 ## USAGE
 
-### Registering a Handler
+Before you can use taskscheduler you have to configure couple of things:
+
+### Setup
 
 ```javascript
 
@@ -39,13 +41,17 @@ var AWSConfig = {
     , "awsAccountId"    : "..."
   };
 
-var util    = require('util')
-  , sqstask = require('lib/sqstask')(AWSConfig)
-  , ts      = require('lib/taskscheduler')(sqstask);
+var util      = require('util')
+  , sqstask   = require('lib/sqstask')(AWSConfig)
+  , scheduler = require('lib/taskscheduler')(sqstask);
+  
+```  
 
-var publisherHandlerID = ts.addTopicHandler("publisher", taskJob, 100);
+### Registering a Handler
 
-var taskJob = function(topic, message, callback) {
+var publisherHandlerID = scheduler.addTopicHandler("publisher", taskJob, 100);
+
+function taskJob(topic, message, callback) {
 
   console.dir("Task job fired, with message: " + message);
    
@@ -60,40 +66,44 @@ var taskJob = function(topic, message, callback) {
   callback(err);
     
 };
+```
 
+### De-Registering a Handler
+
+```javascript
 //-- You can also de-register a task, if you don't want it running "forever".
 
 setTimeout(function(hID) {
-  ts.removeTopicHandler(hID);
+  scheduler.removeTopicHandler(hID);
 }, 1000, publisherHandlerID);
 ```
 
 ### Sending messages
 
 ```javascript
-var amazon = require('awssum-amazon');
 
-// @see: http://awssum.io/amazon/
-var AWSConfig = {
-      "accessKeyId"     : "..."
-    , "secretAccessKey" : "..."
-    , "awsAccountId"    : "..."
-    , "quequePrefix"    : "task"
-    , "region"          : amazon.US_WEST_2 
-  };
+scheduler.topicEnsureExist(test_topic, function(err) {
 
-var sqstask = require('../sqstask')(AWSConfig);
+  if (!err) {
+    sendmessagesAndReadMessages();
+  } else {
+    console.dir(err);
+  }
 
-// Note: you do not have to pre-create queues corresponding to topics. 
-// They will be automatically created for you if they do not exist.
-for (var i = 0; i<5; i++) {
-  sqstask.put( "publisher"
-             , "This is message # " + new Date().getTime()
-             , function(err, result) {
-    if (err) {
-      util.log("Error sending a message to the queue: " + util.inspect(err.Body.ErrorResponse.Error));
-      console.log(err);
-    }
-  });
+  
+}); // end of topic ensuring.
+
+
+function  sendmessagesAndReadMessages() {
+  for (var i = 0; i<5; i++) {
+    scheduler.message( "publisher"
+                     , "This is message # " + new Date().getTime()
+                     , function(err, result) {
+      if (err) {
+        util.log("Error sending a message to the queue: " + util.inspect(err.Body.ErrorResponse.Error));
+        console.log(err);
+      }
+    });
+  }
 }
 ```
