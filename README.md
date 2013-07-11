@@ -29,7 +29,7 @@ like the following:
 
 ## USAGE
 
-Before you can use taskscheduler you have to configure couple of things:
+Before you can use taskscheduler you have to configure it:
 
 ### Setup
 
