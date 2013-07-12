@@ -12,7 +12,7 @@ but consider it an "alpha" stability.
 
 ## Installation
 
-```json
+```bash
 > npm install taskscheduler
 > npm install sqstask
 ```
