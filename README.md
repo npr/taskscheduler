@@ -1,14 +1,14 @@
 taskscheduler
 =============
 
-A topic-based task scheduler for Node.js. Allows for pluggable queue implementation. 
+A simple, queue-based and topic-oriented task scheduler for Node.js with pluggable queue implementation. 
 
 For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
 
 ## Status
 
-A [very] early release. Feel free to: inspect, hack, enjoy and contribute (e.g.: feedback, documentation or bug fixes), 
-but use at your own risk in production. 
+An early release. Feel free to: inspect, hack, enjoy and contribute (e.g.: feedback, documentation or bug fixes), 
+but consider it an "alpha" stability. 
 
 ## Installation
 
