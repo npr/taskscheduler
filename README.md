@@ -32,8 +32,8 @@ var AWSConfig = {
   };
 
 var util      = require('util')
-  , sqstask   = require('lib/sqstask')(AWSConfig)
-  , scheduler = require('lib/taskscheduler')(sqstask);
+  , sqstask   = require('sqstask')(AWSConfig)
+  , scheduler = require('taskscheduler')(sqstask);
   
 ```  
 
