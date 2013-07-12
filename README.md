@@ -12,19 +12,9 @@ but consider it an "alpha" stability.
 
 ## Installation
 
-Since they are under active development, TaskScheduler and SQSTask are intentionally not published to npm, yet. 
-Until that happens best way to use the modules is to point to Github URLs in your packages.json file, with something
-like the following:
-
 ```json
-{
-  "name" : "Example Project"
-, "version" : "1.1.0"
-, "dependencies": {
-    "taskscheduler"      : "git://github.com/publicmediaplatform/taskscheduler.git"
-  , "sqstask"            : "git://github.com/publicmediaplatform/sqstask.git"
-  }
-}
+> npm install taskscheduler
+> npm install sqstask
 ```
 
 ## USAGE
