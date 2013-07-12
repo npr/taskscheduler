@@ -5,6 +5,29 @@ A simple, queue-backed and topic-oriented task scheduler for Node.js with plugga
 
 For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
 
+## TL;DR
+
+A simple call: 
+
+```javascript
+scheduler.addTopicHandler(sometopic, taskJob, 100);
+```
+
+will schedule a javascript function (taskjob) that can "listen" to incoming messages on a `sometopic` topic 
+in a queue. A 'topic' is typically a separate queue/channel on a message queue. 
+
+You can send messages asynchronously to the queue with:
+
+```javascript
+ scheduler.message( sometopic
+                  , somemessage
+                  , function(err, result) {
+      if (err) {
+       // handle error
+      }
+    });
+```
+
 ## Status
 
 An early release. Feel free to: inspect, hack, enjoy and contribute (e.g.: feedback, documentation or bug fixes), 
