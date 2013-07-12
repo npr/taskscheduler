@@ -14,7 +14,7 @@ scheduler.addTopicHandler(sometopic, taskJob, 100);
 ```
 
 will schedule a javascript function (`taskjob` in this case) that can "listen" to incoming messages on a `sometopic` topic 
-in a queue. `taskjob` receives: (topic, message, callback) arguments when called. A 'topic' is typically 
+in a queue every 100 milliseconds. A `taskjob` implementation receives: (topic, message, callback) arguments when called. A 'topic' is typically 
 a separate queue/channel on a message queue. 
 
 You can send messages asynchronously to the queue with:
