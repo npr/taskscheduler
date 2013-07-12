@@ -2,6 +2,7 @@
   "name" : "taskscheduler"
 , "description" : "Task Scheduler"
 , "version" : "0.2.3"
+, "license" : "MIT"
 , "author"  : {
     "name"  : "Irakli Nadareishvili"
   , "email" : "irakli@gmail.com"
