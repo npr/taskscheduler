@@ -1,7 +1,7 @@
 taskscheduler
 =============
 
-A simple, queue-based and topic-oriented task scheduler for Node.js with pluggable queue implementation. 
+A simple, queue-backed and topic-oriented task scheduler for Node.js with pluggable queue implementation. 
 
 For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
 
