@@ -133,8 +133,8 @@ To implement a plugin for a different queue, you must write a proper Node.js mod
     - topicEnsureExists(topic, callback) : checks if a topic (queue) exists on a queue and creates one if it doesn't.    
 1. Implements and exports a Message class that:
     - supports topic, body and id properties and has a constructor: (topic, body, id)
-    - release(callback) method which returns previously grabbed (and locked) message back to the queue
-    - del(callback) method that deletes a method from the queue    
+    - implements release(callback) method which returns previously grabbed (and locked) message back to the queue
+    - implements del(callback) method that deletes a method from the queue    
     
 For a sample of a properly implemented queue task, inspect the source code of [SQSTask](https://github.com/publicmediaplatform/sqstask)    
 
