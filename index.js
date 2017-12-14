@@ -1,1 +1,1 @@
-module.exports = require('./lib/taskscheduler')
+module.exports = require('./lib/taskscheduler');
