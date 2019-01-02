@@ -3,7 +3,7 @@ taskscheduler
 
 A simple, queue-backed and topic-oriented task scheduler for Node.js with pluggable queue implementation. 
 
-For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.com/publicmediaplatform/sqstask)
+For a sample queue plugin that uses Amazon SQS, see: [SQSTask](https://github.com/npr/sqstask)
 
 ## TL;DR
 
@@ -136,5 +136,5 @@ To implement a plugin for a different queue, you must write a proper Node.js mod
     - implements release(callback) method which returns previously grabbed (and locked) message back to the queue
     - implements del(callback) method that deletes a message from the queue    
     
-For a sample of a properly implemented queue task, inspect the source code of [SQSTask](https://github.com/publicmediaplatform/sqstask)    
+For a sample of a properly implemented queue task, inspect the source code of [SQSTask](https://github.com/npr/sqstask)    
 

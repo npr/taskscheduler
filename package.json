@@ -12,6 +12,6 @@
   }
 , "repository" : {
     "type" : "git"
-  , "url" : "git://github.com/publicmediaplatform/taskscheduler.git"
+  , "url" : "git://github.com/npr/taskscheduler.git"
   }
 }
